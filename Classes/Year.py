@@ -1,7 +1,7 @@
+from scipy.stats.mstats import gmean
+
 from helpers import *
 from .Portfolio import Portfolio
-
-from scipy.stats.mstats import gmean
 
 
 class Year:
@@ -40,9 +40,7 @@ class Year:
         return 1 + (self.classic_portfolio.stocks * self.rm + self.classic_portfolio.fixed * self.rf)
 
     def set_lc_g_mean(self, lc_g_mean_list: list):
-        # self.lc_g_mean = geo_mean(lc_g_mean_list) if lc_g_mean_list else self.lc_multiplier
         self.lc_g_mean = gmean(lc_g_mean_list) if lc_g_mean_list else self.lc_multiplier
 
     def set_classic_g_mean(self, classic_g_mean_list: list):
-        # self.classic_g_mean = geo_mean(classic_g_mean_list) if classic_g_mean_list else self.classic_multiplier
         self.classic_g_mean = gmean(classic_g_mean_list) if classic_g_mean_list else self.classic_multiplier

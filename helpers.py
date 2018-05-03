@@ -5,19 +5,6 @@ def calc_rm(mean, deviation):
     return np.random.normal(mean, deviation, 1)[0]
 
 
-def calc_rf(mean, deviation):
-    return np.random.normal(mean, deviation, 1)[0]
-
-
-def calc_multiplier(portfolio, rm, rf):
-    return portfolio['stocks'] * rm + portfolio['fixed'] * rf
-
-
-# def geo_mean(iterable):
-#     a = np.array(iterable)
-#     return a.prod() ** (1.0 / len(a))
-
-
 def geo_mean_overflow(iterable):
     a = np.log(iterable)
     return np.exp(a.sum() / len(a))
